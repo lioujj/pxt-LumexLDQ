@@ -2,7 +2,7 @@
 * LUMEX 七節顯示器的函數
 */
 
-//% weight=0 color=#3c57f0 icon="\uf012" block="Lumex 7-seg"
+//% weight=0 color=#18ed51 icon="\uf012" block="Lumex 7-seg"
 namespace LumexLDQ {
     let allDigits=4;
     let LDQ_tx=SerialPin.P1
@@ -108,7 +108,7 @@ namespace LumexLDQ {
         serial.writeString("atf2=("+lightLevel+")")
         basic.pause(6)
     }
-    //% blockId="LDQ_putNumber" block="show number %myNum| align: %align"
+    //% blockId="LDQ_putNumber" block="Display show number %myNum| align: %align"
     //% weight=86 blockGap=10
     export function LDQ_putNumber(myNum:number,align:numAlign): void {
         let myTempStr=""+myNum;
@@ -123,7 +123,7 @@ namespace LumexLDQ {
         serial.writeString(myTempStr)
         basic.pause(6)
     }
-    //% blockId="LDQ_putString" block="show string %myStr"
+    //% blockId="LDQ_putString" block="Display show string %myStr"
     //% weight=84 blockGap=10
     export function LDQ_putString(myStr:string): void {
         let myTempStr=myStr
@@ -136,7 +136,7 @@ namespace LumexLDQ {
         }
     }
 
-    //% blockId="LDQ_putSingle" block="show single number %myNum| on location:%index_X"
+    //% blockId="LDQ_putSingle" block="Display show single number %myNum| on location:%index_X"
     //% weight=82 blockGap=10 index_X.min=0 index_X.max=5 myNum.min=0 myNum.max=9
     export function LDQ_putSingle(myNum:number,index_X:number): void {
         serial.writeString("at80=(0,"+index_X+","+myNum+")")
