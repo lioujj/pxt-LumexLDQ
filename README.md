@@ -1,31 +1,33 @@
+# LumexLDQ
 
-> Open this page at [https://lioujj.github.io/pxt-lumexldq/](https://lioujj.github.io/pxt-lumexldq/)
+這是專為micro:bit提供的Lumex七節顯示器積木\
+This is a micro:bit extension for Lumex 7-segment display
 
-## Use as Extension
+## Author
+Liou Zheng-Ji\
+劉正吉\
+[my page, https://sites.google.com/jes.mlc.edu.tw/ljj/](https://sites.google.com/jes.mlc.edu.tw/ljj/)
 
-This repository can be added as an **extension** in MakeCode.
+## Description
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/lioujj/pxt-lumexldq** and import
 
-## Edit this project ![Build status badge](https://github.com/lioujj/pxt-lumexldq/workflows/MakeCode/badge.svg)
+## Example1:
 
-To edit this repository in MakeCode.
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **Import** then click on **Import URL**
-* paste **https://github.com/lioujj/pxt-lumexldq** and click import
+## Video1: 
+[![click here to see the sample video](https://img.youtube.com/vi/9lJeDf8KU6M/0.jpg)](https://www.youtube.com/watch?v=9lJeDf8KU6M)
 
-## Blocks preview
 
-This image shows the blocks code from the last commit in master.
-This image may take a few minutes to refresh.
 
-![A rendered view of the blocks](https://github.com/lioujj/pxt-lumexldq/raw/master/.github/makecode/blocks.png)
+## License
 
-#### Metadata (used for search, rendering)
+* MIT
+
+## Supported targets
 
 * for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+(The metadata above is needed for package search.)
+
+```package
+LumexLDQ=github:lioujj/pxt-LumexLDQ
+```
