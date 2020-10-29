@@ -1,20 +1,15 @@
 {
-    "name": "pxt-LumexLDQ",
-    "description": "",
+    "name": "LumexLDQ",
+    "version": "0.0.1",
+    "description": "這是專為micro:bit提供的Lumex七節顯示器積木",
+    "license": "MIT",
     "dependencies": {
-        "core": "*",
-        "radio": "*"
+        "core": "*"
     },
     "files": [
-        "main.ts",
         "README.md",
+        "main.ts",
         "_locales/zh-tw/LumexLDQ-strings.json"
     ],
-    "testFiles": [
-        "test.ts"
-    ],
-    "supportedTargets": [
-        "microbit"
-    ],
-    "preferredEditor": "tsprj"
+    "public": true
 }
