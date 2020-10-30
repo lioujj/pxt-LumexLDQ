@@ -8,7 +8,7 @@ namespace LumexLDQ {
     let allDigits=4
     let LDQ_tx=SerialPin.P1
     let LDQ_rx=SerialPin.P2
-    let delayMS=10
+    let delayMS=6
     export enum indicatorMode {
         //% block="Mode 1"
         mode0 = 0,
@@ -77,6 +77,7 @@ namespace LumexLDQ {
             BaudRate.BaudRate115200
         )
         basic.pause(delayMS)
+        LDQ_lightLevel(4)
     }
 
     //% blockId="LDQ_setDigitsCount" block="set the length of display characters:| %myDigit"
