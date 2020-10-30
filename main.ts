@@ -90,7 +90,7 @@ namespace LumexLDQ {
         basic.pause(6)
     }
     //% blockId="LDQ_blink" block="Start to blink, frequency(0~10): %freq"
-    //% weight=92 freq.min=0 freq.max=10 freq.defl=5 group="Display"
+    //% weight=92 blockGap=10 freq.min=0 freq.max=10 freq.defl=5 group="Display"
     export function LDQ_blink(freq:number): void {
         serial.writeString("ate1=("+freq+")")
         basic.pause(6)
