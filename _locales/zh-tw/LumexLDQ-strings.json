@@ -20,6 +20,7 @@
     "LumexLDQ.LDQ_putNumber|block": "顯示器顯示數字 %myNum| 靠 %align 對齊",
     "LumexLDQ.LDQ_putString|block": "顯示器顯示文字 %myStr",
     "LumexLDQ.LDQ_putSingle|block": "顯示器顯示單一數字 %myNum| 在位置:%index_X",
+    "LumexLDQ.LDQ_ATcommand|block": "執行 AT command: %atCommand",
     "LumexLDQ.LDQ_noIndicator|block": "清除 %myIndicator 指示燈燈光",
     "LumexLDQ.LDQ_indicatorMode|block": "設定指示燈顯示模式：%myMode",
     "LumexLDQ.LDQ_indicatorLevel|block": "顯示 %myIndicator 指示燈圖型，編號：(0~6) %myLevel",
