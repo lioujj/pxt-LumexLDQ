@@ -66,6 +66,7 @@ namespace LumexLDQ {
             BaudRate.BaudRate115200
         )
         basic.pause(delayMS)
+        LDQ_lightLevel(4)
     }
 
     //% blockId="LDQ_serialReconnect" block="set display reconnect to micro:bit serial"
