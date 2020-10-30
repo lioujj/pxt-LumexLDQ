@@ -3,6 +3,7 @@
 */
 
 //% weight=0 color=#18ed51 icon="\uf012" block="Lumex 7-seg"
+//% groups=["03_Indicator", "02_Display", "01_Connection"]
 namespace LumexLDQ {
     let allDigits=4;
     let LDQ_tx=SerialPin.P1
@@ -53,7 +54,7 @@ namespace LumexLDQ {
      * @param pinTX to pinTX ,eg: SerialPin.P1
     */
     //% blockId="LDQ_setSerial" block="set display RX to %pinTX| TX to %pinRX"
-    //% weight=100 blockInlineInputs=true blockGap=10
+    //% weight=100 blockInlineInputs=true blockGap=10 group="01_Connection"
     export function LDQ_setSerial(pinTX: SerialPin, pinRX: SerialPin): void {
         LDQ_tx=pinTX;
         LDQ_rx=pinRX;
@@ -67,7 +68,7 @@ namespace LumexLDQ {
     }
 
     //% blockId="LDQ_serialReconnect" block="set display reconnect to micro:bit serial"
-    //% weight=98 blockGap=10
+    //% weight=98 blockGap=10 group="01_Connection"
     export function LDQ_serialReconnect(): void {
         serial.redirect(
             LDQ_tx,
@@ -78,18 +79,18 @@ namespace LumexLDQ {
     }
 
     //% blockId="LDQ_setDigitsCount" block="set the length of display characters:| %myDigit"
-    //% weight=96 blockGap=10
+    //% weight=96 blockGap=10 group="02_Display"
     export function LDQ_setDigitsCount(myDigit:digits_count):void{
         allDigits=myDigit
     }
     //% blockId="LDQ_clear" block="display clear"
-    //% weight=94 blockGap=10
+    //% weight=94 blockGap=10 group="02_Display"
     export function LDQ_clear(): void {
         serial.writeString("ATd0=()")
         basic.pause(6)
     }
     //% blockId="LDQ_blink" block="Start to blink, frequency(0~10): %freq"
-    //% weight=92 freq.min=0 freq.max=10 freq.defl=5
+    //% weight=92 freq.min=0 freq.max=10 freq.defl=5 group="02_Display"
     export function LDQ_blink(freq:number): void {
         serial.writeString("ate1=("+freq+")")
         basic.pause(6)
@@ -97,19 +98,19 @@ namespace LumexLDQ {
         basic.pause(6)
     }
     //% blockId="LDQ_stopBlink" block="Stop blinking"
-    //% weight=90 blockGap=10
+    //% weight=90 blockGap=10 group="02_Display"
     export function LDQ_stopBlink(): void {
         serial.writeString("ate0=(0)")
         basic.pause(6)
     }
     //% blockId="LDQ_lightLevel" block="Adjust display brightness(0~4):%lightLevel"
-    //% weight=88 blockGap=10 lightLevel.min=0 lightLevel.max=4 lightLevel.defl=4
+    //% weight=88 blockGap=10 group="02_Display" lightLevel.min=0 lightLevel.max=4 lightLevel.defl=4
     export function LDQ_lightLevel(lightLevel:number): void {
         serial.writeString("atf2=("+lightLevel+")")
         basic.pause(6)
     }
     //% blockId="LDQ_putNumber" block="Display show number %myNum| align: %align"
-    //% weight=86 blockGap=10
+    //% weight=86 blockGap=10 group="02_Display"
     export function LDQ_putNumber(myNum:number,align:numAlign): void {
         let myTempStr=""+myNum;
         myTempStr=myTempStr.replaceAll("-"," ")
@@ -124,7 +125,7 @@ namespace LumexLDQ {
         basic.pause(6)
     }
     //% blockId="LDQ_putString" block="Display show string %myStr"
-    //% weight=84 blockGap=10
+    //% weight=84 blockGap=10 group="02_Display"
     export function LDQ_putString(myStr:string): void {
         let myTempStr=myStr
         let max=myTempStr.length
@@ -137,14 +138,14 @@ namespace LumexLDQ {
     }
 
     //% blockId="LDQ_putSingle" block="Display show single number %myNum| on location:%index_X"
-    //% weight=82 blockGap=10 index_X.min=0 index_X.max=5 myNum.min=0 myNum.max=9
+    //% weight=82 blockGap=10 group="02_Display" index_X.min=0 index_X.max=5 myNum.min=0 myNum.max=9
     export function LDQ_putSingle(myNum:number,index_X:number): void {
         serial.writeString("at80=(0,"+index_X+","+myNum+")")
         basic.pause(6)
     }
 
     //% blockId="LDQ_noIndicator" block="clear %myIndicator indicator light"
-    //% weight=80 blockGap=10
+    //% weight=80 blockGap=10 group="03_Indicator"
     export function LDQ_noIndicator(myIndicator: indicator): void {
         if (myIndicator==6){
           serial.writeString("at80=(0,4, )")
@@ -158,14 +159,14 @@ namespace LumexLDQ {
     }
 
     //% blockId="LDQ_indicatorMode" block="set indicators display mode: %myMode"
-    //% weight=78 blockGap=10
+    //% weight=78 blockGap=10 group="03_Indicator"
     export function LDQ_indicatorMode(myMode: indicatorMode): void {
         serial.writeString("ate2=("+myMode+")")
         basic.pause(6)
     }
 
     //% blockId="LDQ_indicatorLevel" block="display %myIndicator indicator pattern, ID：(0~6) %myLevel"
-    //% weight=76 blockGap=10
+    //% weight=76 blockGap=10 group="03_Indicator"
     export function LDQ_indicatorLevel(myIndicator: indicator, myLevel:number): void {
         if (myIndicator==6){
           serial.writeString("at80=(0,4,"+myLevel+")")
@@ -179,7 +180,7 @@ namespace LumexLDQ {
     }
 
     //% blockId="LDQ_indicatorSingle" block="set %myIndicator single LED %myOnOff, LED index(0~6)： %ledIndex"
-    //% weight=74 blockGap=10 ledIndex.min=0 ledIndex.max=6
+    //% weight=74 blockGap=10 ledIndex.min=0 ledIndex.max=6 group="03_Indicator"
     export function LDQ_indicatorSingle(myIndicator:indicator,myOnOff:onOff,ledIndex:number): void {
         let myTempStr="at"
         if (myIndicator==4)
