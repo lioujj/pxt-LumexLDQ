@@ -147,6 +147,13 @@ namespace LumexLDQ {
         basic.pause(delayMS)
     }
 
+    //% blockId="LDQ_ATcommand" block="execute AT command: %atCommand"
+    //% weight=81 blockGap=10 group="Display"
+    export function LDQ_ATcommand(atCommand: string): void {
+        serial.writeString(atCommand)
+        basic.pause(delayMS)
+    }
+
     //% blockId="LDQ_noIndicator" block="clear %myIndicator indicator light"
     //% weight=80 blockGap=10 group="Indicator"
     export function LDQ_noIndicator(myIndicator: indicator): void {
