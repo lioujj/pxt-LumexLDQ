@@ -8,7 +8,7 @@ namespace LumexLDQ {
     let allDigits=4
     let LDQ_tx=SerialPin.P1
     let LDQ_rx=SerialPin.P2
-    let delayMS=6
+    let delayMS=10
     export enum indicatorMode {
         //% block="Mode 1"
         mode0 = 0,
