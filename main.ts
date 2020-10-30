@@ -64,7 +64,7 @@ namespace LumexLDQ {
             LDQ_rx,
             BaudRate.BaudRate115200
         )
-        basic.pause(8)
+        basic.pause(6)
     }
 
     //% blockId="LDQ_serialReconnect" block="set display reconnect to micro:bit serial"
@@ -75,7 +75,7 @@ namespace LumexLDQ {
             LDQ_rx,
             BaudRate.BaudRate115200
         )
-        basic.pause(8)
+        basic.pause(6)
     }
 
     //% blockId="LDQ_setDigitsCount" block="set the length of display characters:| %myDigit"
@@ -87,27 +87,27 @@ namespace LumexLDQ {
     //% weight=94 blockGap=10 group="Display"
     export function LDQ_clear(): void {
         serial.writeString("ATd0=()")
-        basic.pause(8)
+        basic.pause(6)
     }
     //% blockId="LDQ_blink" block="Start to blink, frequency(0~10): %freq"
     //% weight=92 blockGap=10 freq.min=0 freq.max=10 freq.defl=5 group="Display"
     export function LDQ_blink(freq:number): void {
         serial.writeString("ate1=("+freq+")")
-        basic.pause(8)
+        basic.pause(6)
         serial.writeString("ate0=(1)")
-        basic.pause(8)
+        basic.pause(6)
     }
     //% blockId="LDQ_stopBlink" block="Stop blinking"
     //% weight=90 blockGap=10 group="Display"
     export function LDQ_stopBlink(): void {
         serial.writeString("ate0=(0)")
-        basic.pause(8)
+        basic.pause(6)
     }
     //% blockId="LDQ_lightLevel" block="Adjust display brightness(0~4):%lightLevel"
     //% weight=88 blockGap=10 group="Display" lightLevel.min=0 lightLevel.max=4 lightLevel.defl=4
     export function LDQ_lightLevel(lightLevel:number): void {
         serial.writeString("atf2=("+lightLevel+")")
-        basic.pause(8)
+        basic.pause(6)
     }
     //% blockId="LDQ_putNumber" block="Display show number %myNum| align: %align"
     //% weight=86 blockGap=10 group="Display"
@@ -122,7 +122,7 @@ namespace LumexLDQ {
           }
         }
         serial.writeString(myTempStr)
-        basic.pause(8)
+        basic.pause(6)
     }
     //% blockId="LDQ_putString" block="Display show string %myStr"
     //% weight=84 blockGap=10 group="Display"
@@ -133,7 +133,7 @@ namespace LumexLDQ {
           max=allDigits
         for(let i=0;i<max;i++){
           serial.writeString("at80=(0,"+i+","+myTempStr.substr(i, 1) +")")
-          basic.pause(8)
+          basic.pause(6)
         }
     }
 
@@ -141,7 +141,7 @@ namespace LumexLDQ {
     //% weight=82 blockGap=10 group="Display" index_X.min=0 index_X.max=5 myNum.min=0 myNum.max=9
     export function LDQ_putSingle(myNum:number,index_X:number): void {
         serial.writeString("at80=(0,"+index_X+","+myNum+")")
-        basic.pause(8)
+        basic.pause(6)
     }
 
     //% blockId="LDQ_noIndicator" block="clear %myIndicator indicator light"
@@ -149,12 +149,12 @@ namespace LumexLDQ {
     export function LDQ_noIndicator(myIndicator: indicator): void {
         if (myIndicator==6){
           serial.writeString("at80=(0,4, )")
-          basic.pause(8)
+          basic.pause(6)
           serial.writeString("at80=(0,5, )")
-          basic.pause(8)
+          basic.pause(6)
         } else {
           serial.writeString("at80=(0,"+myIndicator+", )")
-          basic.pause(8)
+          basic.pause(6)
         }
     }
 
@@ -162,7 +162,7 @@ namespace LumexLDQ {
     //% weight=78 blockGap=10 group="Indicator"
     export function LDQ_indicatorMode(myMode: indicatorMode): void {
         serial.writeString("ate2=("+myMode+")")
-        basic.pause(8)
+        basic.pause(6)
     }
 
     //% blockId="LDQ_indicatorLevel" block="display %myIndicator indicator pattern, ID：(0~6) %myLevel"
@@ -170,12 +170,12 @@ namespace LumexLDQ {
     export function LDQ_indicatorLevel(myIndicator: indicator, myLevel:number): void {
         if (myIndicator==6){
           serial.writeString("at80=(0,4,"+myLevel+")")
-          basic.pause(8)
+          basic.pause(6)
           serial.writeString("at80=(0,5,"+myLevel+")")
-          basic.pause(8)
+          basic.pause(6)
         } else {
           serial.writeString("at80=(0,"+myIndicator+","+myLevel+")")
-          basic.pause(8)
+          basic.pause(6)
         }
     }
 
@@ -191,6 +191,6 @@ namespace LumexLDQ {
           myTempStr=myTempStr+"2"
         myTempStr=myTempStr+ledIndex+"=("+myOnOff+")"
         serial.writeString(myTempStr)
-        basic.pause(8)
+        basic.pause(6)
     }
 }
